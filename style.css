@@ -1,0 +1,201 @@
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #e8f3ec; /* light green background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem; /* spacing for small screens */
+}
+
+.form-container {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+.contact-form h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333333;
+}
+
+/* Form group spacing */
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group-inline {
+  display: flex;
+  gap: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: #444444;
+}
+
+label span {
+  color: #008060; /* green for required asterisk */
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #008060;
+  outline: none;
+}
+
+/* Radio buttons */
+.radio-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid #cccccc;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.radio-group input {
+  accent-color: #008060;
+}
+
+.radio-group label:hover {
+  border-color: #008060;
+  background: #f0fdf7;
+}
+
+/* Checkbox */
+.checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.checkbox input {
+  accent-color: #008060;
+}
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #008060;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #00664d;
+}
+#first-name:hover, #last-name:hover, #email:hover, #message:hover {
+  border: 1px solid #008060;
+  cursor: pointer;
+}
+.checkbox label:hover{
+  color: #008060;
+}
+
+/* ======================
+   RESPONSIVE DESIGN
+   ====================== */
+@media (max-width: 768px) {
+  .form-group-inline {
+    flex-direction: column; /* stack first/last name */
+  }
+
+  .radio-group {
+    flex-direction: column; /* stack radio buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .form-container {
+    padding: 1.5rem;
+  }
+
+  .contact-form h2 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+  .submit-btn {
+    font-size: 0.95rem;
+    padding: 0.9rem;
+  }
+}
+/* Success message (hidden by default) */
+.success-message {
+  display: none;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #e6f9f0;
+  color: #00664d;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Error styling for inputs */
+input.error,
+textarea.error {
+  border-color: red;
+}
+/* Error state */
+input.error,
+textarea.error {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  display: block;
+}
