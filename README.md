@@ -1,7 +1,3 @@
-Absolutely 🚀 A good **README.md** will make your contact form + Node.js email sender project clear and professional. Here’s a complete one you can use and adapt:
-
----
-
 # 📬 Contact Form with Node.js & Nodemailer
 
 A simple and secure **contact form** built with **HTML, CSS, JavaScript (frontend)** and **Node.js + Express + Nodemailer (backend)**.
