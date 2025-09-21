@@ -2,8 +2,36 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contactForm");
     const successMessage = document.getElementById("successMessage");
 
-    form.addEventListener("submit", function (event) {
+    form.addEventListener("submit", async function (event) {
         event.preventDefault();
+
+        const formData = {
+            firstName: document.getElementById("first-name").value,
+            lastName: document.getElementById("last-name").value,
+            email: document.getElementById("email").value,
+            query: form.querySelector("input[name='query']:checked")?.value || "",
+            message: document.getElementById("message").value,
+        };
+
+        try {
+            const res = await fetch("http://localhost:3000/send", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                form.style.display = "none";
+                successMessage.style.display = "block";
+            } else {
+                alert("❌ Failed to send message. Try again.");
+            }
+        } catch (error) {
+            alert("⚠️ Error connecting to server.");
+        }
+
 
         let isValid = true;
 
@@ -70,4 +98,4 @@ document.addEventListener("DOMContentLoaded", () => {
         const errorSpan = element.closest(".form-group, .checkbox").querySelector(".error-message");
         if (errorSpan) errorSpan.textContent = message;
     }
-});
+});     
